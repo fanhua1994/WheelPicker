@@ -79,7 +79,7 @@ public class WheelPickerPopupWindow extends BasePopupWindow implements View.OnCl
     public void close(){
         releaseProvinceData();
         backgroundAlpha(1f);
-        this.dismiss();
+        dismiss();
     }
 
     // 设置屏幕透明度
@@ -97,7 +97,7 @@ public class WheelPickerPopupWindow extends BasePopupWindow implements View.OnCl
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.btn_cancel:
-                close();
+                dismiss();
                 break;
 
             case R.id.btn_confirm:
