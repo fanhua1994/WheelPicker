@@ -10,12 +10,13 @@ import com.hengyi.wheelpicker.R;
 import com.hengyi.wheelpicker.ppw.WheelPickerPopupWindow;
 
 public class MainActivity extends AppCompatActivity {
-    private Button button;
+    private Button button,close;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button = findViewById(R.id.button);
+        close = findViewById(R.id.close);
         final WheelPickerPopupWindow wheelPickerPopupWindow = new WheelPickerPopupWindow(MainActivity.this);
         wheelPickerPopupWindow.setListener(new WheelPickerPopupWindow.WheelPickerComfirmListener() {
 
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,Province,Toast.LENGTH_LONG).show();
             }
         });
+
+
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

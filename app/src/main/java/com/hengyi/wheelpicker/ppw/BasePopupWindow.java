@@ -22,7 +22,6 @@ import javax.xml.parsers.SAXParserFactory;
  */
 
 public class BasePopupWindow extends PopupWindow {
-
     /**
      * 所有省
      */
@@ -127,12 +126,15 @@ public class BasePopupWindow extends PopupWindow {
      * 释放数据
      */
     public void releaseProvinceData(){
-        mProvinceDatas = null;
         mCitisDatasMap.clear();
         mDistrictDatasMap.clear();
         mZipcodeDatasMap.clear();
+        mCitisDatasMap = null;
+        mZipcodeDatasMap = null;
+        mDistrictDatasMap = null;
         mCurrentCityName = null;
         mCurrentDistrictName = null;
         mCurrentZipCode = null;
+        mProvinceDatas = null;
     }
 }

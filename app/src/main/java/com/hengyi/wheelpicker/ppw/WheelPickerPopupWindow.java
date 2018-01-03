@@ -29,7 +29,6 @@ public class WheelPickerPopupWindow extends BasePopupWindow implements View.OnCl
 
     public WheelPickerPopupWindow(Activity activity){
         this.activity = activity;
-        initProvinceData(activity);
         LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mView = inflater.inflate(R.layout.ppw_wheel_picker_view, null,false);
         btn_cancel = mView.findViewById(R.id.btn_cancel);
@@ -43,16 +42,6 @@ public class WheelPickerPopupWindow extends BasePopupWindow implements View.OnCl
         mViewProvince.addChangingListener(this);
         mViewCity.addChangingListener(this);
         mViewDistrict.addChangingListener(this);
-
-        Toast.makeText(activity,mProvinceDatas.length+"",Toast.LENGTH_SHORT).show();
-
-        mViewProvince.setViewAdapter(new ArrayWheelAdapter<String>(activity, mProvinceDatas));
-        // 设置可见条目数量
-        mViewProvince.setVisibleItems(7);
-        mViewCity.setVisibleItems(7);
-        mViewDistrict.setVisibleItems(7);
-        updateCities();
-        updateAreas();
 
         //设置PopupWindow的View
         this.setContentView(mView);
@@ -78,6 +67,13 @@ public class WheelPickerPopupWindow extends BasePopupWindow implements View.OnCl
     public void show(){
         showAtLocation(activity.getWindow().getDecorView(), Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
         backgroundAlpha(0.6f);
+        initProvinceData(activity);
+        mViewProvince.setViewAdapter(new ArrayWheelAdapter<String>(activity, mProvinceDatas));
+        mViewProvince.setVisibleItems(7);
+        mViewCity.setVisibleItems(7);
+        mViewDistrict.setVisibleItems(7);
+        updateCities();
+        updateAreas();
     }
 
     public void close(){
