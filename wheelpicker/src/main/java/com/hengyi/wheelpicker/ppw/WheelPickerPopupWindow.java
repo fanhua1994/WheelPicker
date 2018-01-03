@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hengyi.wheelpicker.R;
 import com.hengyi.wheelpicker.weight.OnWheelChangedListener;
@@ -95,17 +94,14 @@ public class WheelPickerPopupWindow extends BasePopupWindow implements View.OnCl
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()){
-            case R.id.btn_cancel:
-                dismiss();
-                break;
-
-            case R.id.btn_confirm:
-                if(listener != null){
-                    listener.onSelected(mCurrentProviceName,mCurrentCityName,mCurrentDistrictName,mCurrentZipCode);
-                }
-                close();
-                break;
+        int i = v.getId();
+        if (i == R.id.btn_cancel) {
+            dismiss();
+        } else if (i == R.id.btn_confirm) {
+            if (listener != null) {
+                listener.onSelected(mCurrentProviceName, mCurrentCityName, mCurrentDistrictName, mCurrentZipCode);
+            }
+            dismiss();
         }
     }
 
@@ -152,6 +148,6 @@ public class WheelPickerPopupWindow extends BasePopupWindow implements View.OnCl
     }
 
     public interface WheelPickerComfirmListener{
-        public void onSelected(String Province,String City,String District,String PostCode);
+        public void onSelected(String Province, String City, String District, String PostCode);
     }
 }

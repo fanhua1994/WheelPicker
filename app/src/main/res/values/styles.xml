@@ -7,10 +7,4 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!-- popupwindow 动画 -->
-    <style name="Animation">
-        <item name="android:windowEnterAnimation">@anim/enter_anim</item>
-        <item name="android:windowExitAnimation">@anim/out_anim</item>
-    </style>
-
 </resources>

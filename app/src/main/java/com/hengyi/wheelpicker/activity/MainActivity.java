@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSelected(String Province, String City, String District, String PostCode) {
-                Toast.makeText(MainActivity.this,Province,Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,Province + City + District,Toast.LENGTH_LONG).show();
             }
         });
 
