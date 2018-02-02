@@ -15,6 +15,9 @@ import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
 
 import com.hengyi.wheelpicker.R;
+import com.hengyi.wheelpicker.listener.OnWheelChangedListener;
+import com.hengyi.wheelpicker.listener.OnWheelClickedListener;
+import com.hengyi.wheelpicker.listener.OnWheelScrollListener;
 import com.hengyi.wheelpicker.weight.adapters.WheelViewAdapter;
 
 import java.util.LinkedList;

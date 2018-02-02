@@ -1,5 +1,5 @@
 /*
- *  Copyright 2011 Yuri Kanivets
+ *  Copyright 2010 Yuri Kanivets
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -14,19 +14,23 @@
  *  limitations under the License.
  */
 
-package com.hengyi.wheelpicker.weight;
+package com.hengyi.wheelpicker.listener;
+
+import com.hengyi.wheelpicker.weight.WheelView;
 
 /**
- * Wheel clicked listener interface.
- * <p>The onItemClicked() method is called whenever a wheel item is clicked
- * <li> New Wheel position is set
- * <li> Wheel view is scrolled
+ * Wheel scrolled listener interface.
  */
-public interface OnWheelClickedListener {
-    /**
-     * Callback method to be invoked when current item clicked
-     * @param wheel the wheel view
-     * @param itemIndex the index of clicked item
-     */
-    void onItemClicked(WheelView wheel, int itemIndex);
+public interface OnWheelScrollListener {
+	/**
+	 * Callback method to be invoked when scrolling started.
+	 * @param wheel the wheel view whose state has changed.
+	 */
+	void onScrollingStarted(WheelView wheel);
+	
+	/**
+	 * Callback method to be invoked when scrolling ended.
+	 * @param wheel the wheel view whose state has changed.
+	 */
+	void onScrollingFinished(WheelView wheel);
 }

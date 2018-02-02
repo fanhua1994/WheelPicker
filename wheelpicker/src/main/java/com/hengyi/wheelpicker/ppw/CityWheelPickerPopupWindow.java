@@ -11,7 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hengyi.wheelpicker.R;
-import com.hengyi.wheelpicker.weight.OnWheelChangedListener;
+import com.hengyi.wheelpicker.listener.OnCityWheelComfirmListener;
+import com.hengyi.wheelpicker.listener.OnWheelChangedListener;
 import com.hengyi.wheelpicker.weight.WheelView;
 import com.hengyi.wheelpicker.weight.adapters.ArrayWheelAdapter;
 
@@ -19,14 +20,14 @@ import com.hengyi.wheelpicker.weight.adapters.ArrayWheelAdapter;
  * Created by Administrator on 2018/1/3.
  */
 
-public class WheelPickerPopupWindow extends BasePopupWindow implements View.OnClickListener,OnWheelChangedListener {
+public class CityWheelPickerPopupWindow extends BasePopupWindow implements View.OnClickListener,OnWheelChangedListener {
     private View mView;
     private Activity activity;
     private TextView btn_cancel,btn_confirm;
     private WheelView mViewProvince, mViewCity,mViewDistrict;
-    private WheelPickerComfirmListener listener = null;
+    private OnCityWheelComfirmListener listener = null;
 
-    public WheelPickerPopupWindow(Activity activity){
+    public CityWheelPickerPopupWindow(Activity activity){
         this.activity = activity;
         LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mView = inflater.inflate(R.layout.ppw_wheel_picker_view, null,false);
@@ -88,7 +89,7 @@ public class WheelPickerPopupWindow extends BasePopupWindow implements View.OnCl
         activity.getWindow().setAttributes(lp);
     }
 
-    public void setListener(WheelPickerComfirmListener wheelPickerComfirmListener){
+    public void setListener(OnCityWheelComfirmListener wheelPickerComfirmListener){
         this.listener = wheelPickerComfirmListener;
     }
 
@@ -145,9 +146,5 @@ public class WheelPickerPopupWindow extends BasePopupWindow implements View.OnCl
         mViewCity.setViewAdapter(new ArrayWheelAdapter<String>(activity, cities));
         mViewCity.setCurrentItem(0);
         updateAreas();
-    }
-
-    public interface WheelPickerComfirmListener{
-        public void onSelected(String Province, String City, String District, String PostCode);
     }
 }

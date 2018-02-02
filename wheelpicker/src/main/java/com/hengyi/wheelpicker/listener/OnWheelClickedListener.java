@@ -14,20 +14,21 @@
  *  limitations under the License.
  */
 
-package com.hengyi.wheelpicker.weight;
+package com.hengyi.wheelpicker.listener;
+
+import com.hengyi.wheelpicker.weight.WheelView;
 
 /**
- * Wheel changed listener interface.
- * <p>The onChanged() method is called whenever current wheel positions is changed:
+ * Wheel clicked listener interface.
+ * <p>The onItemClicked() method is called whenever a wheel item is clicked
  * <li> New Wheel position is set
  * <li> Wheel view is scrolled
  */
-public interface OnWheelChangedListener {
-	/**
-	 * Callback method to be invoked when current item changed
-	 * @param wheel the wheel view whose state has changed
-	 * @param oldValue the old value of current item
-	 * @param newValue the new value of current item
-	 */
-	void onChanged(WheelView wheel, int oldValue, int newValue);
+public interface OnWheelClickedListener {
+    /**
+     * Callback method to be invoked when current item clicked
+     * @param wheel the wheel view
+     * @param itemIndex the index of clicked item
+     */
+    void onItemClicked(WheelView wheel, int itemIndex);
 }

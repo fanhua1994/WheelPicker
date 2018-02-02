@@ -7,7 +7,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.hengyi.wheelpicker.R;
-import com.hengyi.wheelpicker.ppw.WheelPickerPopupWindow;
+import com.hengyi.wheelpicker.listener.OnCityWheelComfirmListener;
+import com.hengyi.wheelpicker.ppw.CityWheelPickerPopupWindow;
 
 public class MainActivity extends AppCompatActivity {
     private Button button;
@@ -16,9 +17,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button = findViewById(R.id.button);
-        final WheelPickerPopupWindow wheelPickerPopupWindow = new WheelPickerPopupWindow(MainActivity.this);
-        wheelPickerPopupWindow.setListener(new WheelPickerPopupWindow.WheelPickerComfirmListener() {
 
+        final CityWheelPickerPopupWindow wheelPickerPopupWindow = new CityWheelPickerPopupWindow(MainActivity.this);
+        wheelPickerPopupWindow.setListener(new OnCityWheelComfirmListener() {
             @Override
             public void onSelected(String Province, String City, String District, String PostCode) {
                 Toast.makeText(MainActivity.this,Province + City + District,Toast.LENGTH_LONG).show();

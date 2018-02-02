@@ -905,6 +905,12 @@
       <district name="秀英区" zipcode="570000" />
       <district name="其他" zipcode="570000" />
     </city>
+    <city name="三沙市">
+      <district name="西沙县" zipcode="000000" />
+      <district name="中沙县" zipcode="000000" />
+      <district name="南沙县" zipcode="000000" />
+      <district name="其他" zipcode="000000" />
+    </city>
   </province>
   <province name="河北省">
     <city name="保定市">
